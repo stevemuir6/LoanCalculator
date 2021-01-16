@@ -61,8 +61,8 @@
  <div class="container">
    <div class="row">
         <!-- User inputs -->
-        <div class="col-3">
-          <div class="row">
+        <div class="col-3" id="userInput">
+          <div class="row align-top">
             <div style="display: flex; flex-direction: row;" class="form-group">
               <label for="loan">Loan Amount:</label>
               <input type="text"
@@ -87,15 +87,51 @@
           <button type="button" class="btn btn-primary">Calculate</button>
         </div>
         
-        <div class="col-9">
-          <div class="row">
-            <h1><span class="align-middle align-top">Your Monthly Payments</span></h1>
-            <p></p>
-
+        <div class="col" id="pymntCalc">
+          <div class="row justify-content-center">
+            <h1>Your Monthly Payments</h1>
           </div>
-        </div>
-         
-   </div>
+          <div class="row justify-content-center">
+            <p id="monthlyPayment"><strong>{}{}{}{}</strong></p>
+         </div> 
+         <div class="row justify-content-between">
+          <div class="col-4">
+            <strong>Total Principal:</strong>
+          </div>
+          <div class="col-4">
+            <p id="totalPrinc" class="text-right"> hope to display Principal here</p>
+          </div>
+        </div>  
+         <div class="row justify-content-between">
+          <div class="col-4">
+            <strong>Total Interest:</strong>
+          </div>
+          <div class="col-4">
+           <p id="totalInt" class="text-right"> hope to display Interest here</p>
+          </div>
+        </div>  
+         <div class="row justify-content-between">
+          <div class="col-4">
+            <strong>Total Cost:</strong>
+          </div>
+          <div class="col-4">
+            <p id="cost" class="text-right"> hope to diplay Cost amnt here</p>
+          </div>
+        </div>  
+       </div>
+      
+       <!-- Display Principal, Interest, Cost
+        <div class="col">
+          <div class="col-10">
+            <h4>Total</h4>
+          </div>
+        </div>  -->
+
+        
+
+
+
+     </div>
  </div>
 
 
