@@ -16,7 +16,7 @@
 
 
     <!-- Nav Bar -->
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #cc6607;">
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: dodgerblue;">
         <a class="navbar-brand" href="#">Loan Calculator</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation"></button>
@@ -95,14 +95,14 @@
           </div>
           <br>
           <div class="row justify-content-center">
-            <p id="monthlyPayment"><strong>{}{}{}{}</strong></p>
+            <p  class="h2" id="monthlyPayment"><strong></strong></p>
          </div> 
          <div class="row justify-content-between">
           <div class="col-4">
             <strong>Total Principal:</strong>
           </div>
           <div class="col-4">
-            <p id="totalPrinc" class="text-right"> hope to display Principal here</p>
+            <p id="totalPrinc" class="text-right"></p>
           </div>
         </div>  
          <div class="row justify-content-between">
@@ -110,7 +110,7 @@
             <strong>Total Interest:</strong>
           </div>
           <div class="col-4">
-           <p id="totalInt" class="text-right"> hope to display Interest here</p>
+           <p id="totalInt" class="text-right"></p>
           </div>
         </div>  
          <div class="row justify-content-between">
@@ -118,19 +118,29 @@
             <strong>Total Cost:</strong>
           </div>
           <div class="col-4">
-            <p id="cost" class="text-right"> hope to diplay Cost amnt here</p>
+            <p id="cost" class="text-right"></p>
           </div>
         </div>  
        </div>
-      
-       
-        
-
-        
-
-
-
      </div>
+<!-- Amortization Table -->
+     <table class="table">
+       <thead>
+         <tr>
+           <th scope="col">Month</th>
+           <th scope="col">Payment</th>
+           <th scope="col">Principal</th>
+           <th scope="col">Interest</th>
+           <th scope="col">Total Interest</th>
+           <th scope="col">Balance</th>
+         </tr>
+       </thead>
+       <tbody>
+
+       </tbody>
+     </table>
+
+
  </div>
 
 
