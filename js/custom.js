@@ -35,10 +35,10 @@ function newFunction() {
 
 
     // results
-    document.getElementById("monthlyPayment").innerHTML = "$" + monthlyPayment;
-    document.getElementById("totalInt").innerHTML = "$" + totalInterest;
+    document.getElementById("monthlyPayment").innerHTML = `$${monthlyPayment}`;
+    document.getElementById("totalInt").innerHTML = `$${totalInterest}`;
     document.getElementById("totalPrinc").innerHTML = `$${userAmount}`;
-    document.getElementById("cost").innerHTML = totalPayment;
+    document.getElementById("cost").innerHTML = `$${totalPayment}`;
     // document.getElementById("cost").innerHTML = "$" +
     // return { userAmount, userMonths, userIntRate }
     // return { principal, calculateInterest, calculatePayments};
