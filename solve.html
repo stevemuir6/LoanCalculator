@@ -14,7 +14,7 @@
   </head>
   <body>
 
-    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: #cc6607;">
+    <nav class="navbar navbar-expand-sm navbar-dark" style="background-color: dodgerblue;">
         <a class="navbar-brand" href="#">Loan Calculator</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation"></button>
@@ -40,6 +40,109 @@
             
         </div>
     </nav>
+
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-3">Loan Calculator</h1>
+          <p class="lead">Create a mortgage loan calculator application that takes in three parameters:
+            <br>1: The amount of money loaned in dollars
+            <br>2: The time over which the loan  will be repaid, in months
+            <br>3: The percentage rate at which interest will accrue on the loan</p>
+          <hr class="my-2">
+          <p></p>
+          <p class="lead">
+            <a class="btn btn-primary btn-lg" href="Jumbo action link" role="button">Jumbo action name</a>
+          </p>
+        </div>
+      </div>
+
+
+
+    <div class="container">
+        <div class="row">
+             <!-- User inputs -->
+             <div class="col-4" id="userInput">
+               <div class="row align-top">
+                 <div style="display: flex; flex-direction: row;" class="form-group">
+                   <label for="loan">Loan Amount:</label>
+                   <input type="number"
+                     class="form-control" name="loanAmnt" id="loanAmnt" placeholder="">
+                 </div>
+               </div>
+               <div class="row">
+                 <div style="display: flex; flex-direction: row;" class="form-group">
+                   <label for="term">Term (in months):</label>
+                   <input type="number"
+                     class="form-control" name="term" id="term" placeholder="">
+                 </div>
+               </div>
+               <div class="row">
+                 <div style="display: flex; flex-direction: row;" class="form-group">
+                   <label for="intRate">Interest Rate %</label>
+                   <input type="number"
+                     class="form-control" name="intRate" id="intRate" placeholder="">
+                 </div>
+               </div>
+               
+               <button type="button" id="calculate" class="btn btn-primary">Calculate</button>
+             </div>
+             
+             <!--  Display Principal, Interest, Cost -->
+     
+             <div class="col" id="pymntCalc">
+               <div class="row justify-content-center">
+                 <h1>Your Monthly Payments</h1>
+               </div>
+               <br>
+               <div class="row justify-content-center">
+                 <p  class="h2" id="monthlyPayment"><strong></strong></p>
+              </div> 
+              <div class="row justify-content-between">
+               <div class="col-4">
+                 <strong>Total Principal:</strong>
+               </div>
+               <div class="col-4">
+                 <p id="totalPrinc" class="text-right"></p>
+               </div>
+             </div>  
+              <div class="row justify-content-between">
+               <div class="col-4">
+                 <strong>Total Interest:</strong>
+               </div>
+               <div class="col-4">
+                <p id="totalInt" class="text-right"></p>
+               </div>
+             </div>  
+              <div class="row justify-content-between">
+               <div class="col-4">
+                 <strong>Total Cost:</strong>
+               </div>
+               <div class="col-4">
+                 <p id="cost" class="text-right"></p>
+               </div>
+             </div>  
+            </div>
+          </div>
+         
+     <!-- Amortization Table -->
+         <div>
+           <table class="table" id="amortTable">
+             <thead id="amortHeader">
+               <tr>
+                 <th scope="col">Month</th>
+                 <th scope="col">Payment</th>
+                 <th scope="col">Principal</th>
+                 <th scope="col">Interest</th>
+                 <th scope="col">Total Interest</th>
+                 <th scope="col">Balance</th>
+               </tr>
+             </thead>
+             <tbody id="table">
+     
+             </tbody>
+           </table>
+          </div>
 
       
     <!-- Optional JavaScript -->

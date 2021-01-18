@@ -47,16 +47,25 @@ function newFunction() {
     for (i=1; i <= userMonths; i++){
         if(i==1){
             remainingBalance = userAmount
+            remainingBalance = Math.round(remainingBalance  * 100 + Number.EPSILON) / 100
             interestPayment = remainingBalance * userIntRate/1200
+            interestPayment = Math.round(interestPayment * 100 + Number.EPSILON)  / 100
             principalPayment = monthlyPayment - interestPayment
+            principalPayment = Math.round(principalPayment * 100 + Number.EPSILON) / 100
             totalInterest2 = interestPayment
+            totalInterest2 = Math.round(totalInterest2 * 100 + Number.EPSILON) / 100
             remainingBalance = remainingBalance - principalPayment
+            remainingBalance = Math.round(remainingBalance * 100 + Number.EPSILON) / 100
        }
         else{
             remainingBalance = remainingBalance-principalPayment
+            remainingBalance = Math.round(remainingBalance  * 100 + Number.EPSILON) / 100
             interestPayment = remainingBalance*userIntRate/1200
+            interestPayment = Math.round(interestPayment * 100 + Number.EPSILON)  / 100
             principalPayment = monthlyPayment - interestPayment
+            principalPayment = Math.round(principalPayment * 100 + Number.EPSILON) / 100
             totalInterest2 = totalInterest2 + interestPayment
+            totalInterest2 = Math.round(totalInterest2 * 100 + Number.EPSILON) / 100
         }
         document.getElementById("table").innerHTML+=`<tr><th scope="row">${i}</th><th>${monthlyPayment}</th><th>${principalPayment
         }</th><th>${interestPayment}</th><th>${totalInterest2}</th><th>${remainingBalance}</th></tr>`
