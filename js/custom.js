@@ -5,8 +5,8 @@ document.getElementById("calculate").addEventListener("click",computeResults);
 function computeResults(){
     let { userAmount, userMonths, userIntRate } = newFunction();
      
-    console.log(userAmount,userMonths,userIntRate);
-};
+    // console.log(userAmount,userMonths,userIntRate);
+}
 
 function newFunction() {
     let userAmount = document.getElementById("loanAmnt").value;
@@ -39,7 +39,118 @@ function newFunction() {
     document.getElementById("totalInt").innerHTML = `$${totalInterest}`;
     document.getElementById("totalPrinc").innerHTML = `$${userAmount}`;
     document.getElementById("cost").innerHTML = `$${totalPayment}`;
+
+    let remainingBalance = 0;
+    let interestPayment = 0;
+    let principalPayment = 0;
+    let totalInterest2 = 0;
+    for (i=1; i <= userMonths; i++){
+        if(i==1){
+            remainingBalance = userAmount
+            interestPayment = remainingBalance * userIntRate/1200
+            principalPayment = monthlyPayment - interestPayment
+            totalInterest2 = interestPayment
+            remainingBalance = remainingBalance - principalPayment
+       }
+        else{
+            remainingBalance = remainingBalance-principalPayment
+            interestPayment = remainingBalance*userIntRate/1200
+            principalPayment = monthlyPayment - interestPayment
+            totalInterest2 = totalInterest2 + interestPayment
+        }
+        document.getElementById("table").innerHTML+=`<tr><th scope="row">${i}</th><th>${monthlyPayment}</th><th>${principalPayment
+        }</th><th>${interestPayment}</th><th>${totalInterest2}</th><th>${remainingBalance}</th></tr>`
+    
+
+    }
+
+
+
+    // ************************************************************
     // document.getElementById("cost").innerHTML = "$" +
     // return { userAmount, userMonths, userIntRate }
     // return { principal, calculateInterest, calculatePayments};
+
+
+    // Amortization table  not finished but trying a different way
+    // let table="";
+
+    // table += "<table cellpadding='15 border='1>";
+
+    // table += "<tr>";
+    //     table += "<td>0</td>";
+    //     table += "<td>&nbsp</td>";
+    //     table += "<td>&nbsp</td>";
+    //     table += "<td>&nbsp</td>";
+    //     table += "<td>&nbsp</td>";
+    //     table += "<td>"+userAmount+"</td>";
+    // table += "</tr>";
+
+    // table +="</table>";
+    // document.getElementById("table").innerHTML = table;
+
+
+
+        // *************** I think this may be a better method to display Amortization
+
+
+
+
+//         // Amort js output
+// function getValues(){
+//     let balance = parseFloa(document.getElementById("loamAmount").value);
+//     let interestRate = parseFloat(document.getElementById("intRate").value/100);
+//     let terms = parseInt(document.getElementById("term").value);
+// // set div string
+//     let div = document.getElementById("Result");
+
+//     // in case of re-calc clear div
+// }
+//         // let div = document.getElementById("Result");
+//         // amort function: calculates necessary elements of loan and displays each months
+//         //  amortization schedule on the page
+//      function amort(userAmount,)
+
+        
+
+//     result += "<table border='1'><tr><th>Month #</th><th>Payment</th><th>Principal</th>" +
+//              "<th>Interest</th><th>Total Interest</th><th>Balance</th>";
+
+//     for (let count = 0; count < userMonths; ++count) {
+         
+//         // in-loop interest amount holder
+//         let interest = 0;
+
+//         //  in-loop monthly principal holder
+//         let monthlyPrincipal = 0;
+
+//         // start new table row with each loop iteration
+//         result += "<tr align=center>";
+
+//         // display month number in col 1 using the loop count variable
+//         result += "<td>" + (count + 1) + "</td>";
+
+//         //  code for displaying in loop balance
+//         result += "<td>" + userAmount + "</td>";
+
+//         //  calculate in-loop interest amount and display
+//         interest = userAmount * monthlyPayment;
+//         result += "<td> $" + interest + "</td>";
+
+//         //  calculate the in-loop monthly principal and display
+//         monthlyPrincipal = monthlyPayment - interest;
+//         result += "<td> $" + monthlyPrincipal + "</td>";
+
+//         // end the table row on each iteration of the loop
+//         result += "</tr>";
+
+//         //  update the balance for each loop iteration
+//         userAmount = userAmount - monthlyPrincipal;
+//     } 
+//     //  Final piece added to return string before returning it - closes the table
+//     result += "</table>";
+   
+//     // returns concatenated string to the page
+//     return result;
+
 }
