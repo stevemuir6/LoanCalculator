@@ -57,6 +57,21 @@ function newFunction() {
             remainingBalance = remainingBalance - principalPayment
             remainingBalance = Math.round(remainingBalance * 100 + Number.EPSILON) / 100
        }
+       else if (i == userMonths){
+           let totalMonthlyPayment = remainingBalance;
+           remainingBalance = remainingBalance - principalPayment;
+           remainingBalance = Math.round(remainingBalance * 100 + Number.EPSILON) / 100
+           interestPayment = remainingBalance * userIntRate / 1200
+           interestPayment = Math.round(interestPayment * 100 + Number.EPSILON)  / 100
+           principalPayment = totalMonthlyPayment - interestPayment
+           principalPayment = Math.round(principalPayment * 100 + Number.EPSILON)  / 100
+           totalInterest2 = totalInterest2 + interestPayment
+           totalInterest2 = Math.round(totalInterest2 * 100 + Number.EPSILON) / 100
+           monthlyPayment = totalMonthlyPayment
+           remainingBalance = 0
+
+
+       }
         else{
             remainingBalance = remainingBalance-principalPayment
             remainingBalance = Math.round(remainingBalance  * 100 + Number.EPSILON) / 100
