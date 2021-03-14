@@ -98,7 +98,113 @@ Coded by www.creative-tim.com
         <div class="container shape-container d-flex align-items-center py-lg">
           <div class="col px-0">
             <div class="row align-items-center justify-content-center">
-              <pre><code class="language-css">p { color: red }</code>
+              <pre data-src="js/custom.js" data-download-link data-download-link-label="Download this file">
+                <code class="language-css">
+                // listen for submit
+
+                document.getElementById("calculate").addEventListener("click",computeResults);
+                
+                function computeResults(){
+                    let { userAmount, userMonths, userIntRate } = newFunction();
+                     
+                    // console.log(userAmount,userMonths,userIntRate);
+                }
+                
+                function newFunction() {
+                    let userAmount = document.getElementById("loanAmnt").value;
+                    let userMonths = document.getElementById("term").value;
+                    let userIntRate = document.getElementById("intRate").value;
+                    
+                     
+                
+                //  calculate
+                 
+                    let principal = parseFloat(userAmount);
+                    let calculateInterest = parseFloat(userIntRate * .01 ) /12;
+                    let calculatePayments = parseFloat(userMonths);
+                    
+                    
+                //  monthly payment
+                    let x = Math.pow(1 + calculateInterest, calculatePayments)
+                    let monthly = (principal * x * calculateInterest) / (x-1);
+                    let monthlyPayment = monthly.toFixed(2);
+                
+                    // Interest
+                    let totalInterest = (monthly * calculatePayments - principal).toFixed(2);
+                
+                    // Total payment
+                     let totalPayment = (monthly * calculatePayments).toFixed(2);
+                
+                
+                    // results
+                    document.getElementById("monthlyPayment").innerHTML = `$${monthlyPayment}`;
+                    document.getElementById("totalInt").innerHTML = `$${totalInterest}`;
+                    document.getElementById("totalPrinc").innerHTML = `$${userAmount}`;
+                    document.getElementById("cost").innerHTML = `$${totalPayment}`;
+                
+                    let remainingBalance = 0;
+                    let interestPayment = 0;
+                    let principalPayment = 0;
+                    let totalInterest2 = 0;
+                    for (i=1; i <= userMonths; i++){
+                        if(i==1){
+                            remainingBalance = userAmount
+                            remainingBalance = Math.round(remainingBalance  * 100 + Number.EPSILON) / 100
+                            interestPayment = remainingBalance * userIntRate/1200
+                            interestPayment = Math.round(interestPayment * 100 + Number.EPSILON)  / 100
+                            principalPayment = monthlyPayment - interestPayment
+                            principalPayment = Math.round(principalPayment * 100 + Number.EPSILON) / 100
+                            totalInterest2 = interestPayment
+                            totalInterest2 = Math.round(totalInterest2 * 100 + Number.EPSILON) / 100
+                            remainingBalance = remainingBalance - principalPayment
+                            remainingBalance = Math.round(remainingBalance * 100 + Number.EPSILON) / 100
+                       }
+                       else if (i == userMonths){
+                           let totalMonthlyPayment = remainingBalance;
+                           remainingBalance = remainingBalance - principalPayment;
+                           remainingBalance = Math.round(remainingBalance * 100 + Number.EPSILON) / 100
+                           interestPayment = remainingBalance * userIntRate / 1200
+                           interestPayment = Math.round(interestPayment * 100 + Number.EPSILON)  / 100
+                           principalPayment = totalMonthlyPayment - interestPayment
+                           principalPayment = Math.round(principalPayment * 100 + Number.EPSILON)  / 100
+                           totalInterest2 = totalInterest2 + interestPayment
+                           totalInterest2 = Math.round(totalInterest2 * 100 + Number.EPSILON) / 100
+                           monthlyPayment = totalMonthlyPayment
+                           remainingBalance = 0
+                
+                
+                       }
+                        else{
+                            remainingBalance = remainingBalance-principalPayment
+                            remainingBalance = Math.round(remainingBalance  * 100 + Number.EPSILON) / 100
+                            interestPayment = remainingBalance*userIntRate/1200
+                            interestPayment = Math.round(interestPayment * 100 + Number.EPSILON)  / 100
+                            principalPayment = monthlyPayment - interestPayment
+                            principalPayment = Math.round(principalPayment * 100 + Number.EPSILON) / 100
+                            totalInterest2 = totalInterest2 + interestPayment
+                            totalInterest2 = Math.round(totalInterest2 * 100 + Number.EPSILON) / 100
+                        }
+                        document.getElementById("table").innerHTML+=`<tr>
+                          <th scope="row">${i}</th>
+                          <th>${monthlyPayment}</th>
+                          <th>${principalPayment}</th>
+                          <th>${interestPayment}</th>
+                          <th>${totalInterest2}</th>
+                          <th>${remainingBalance}</th></tr>`
+                    
+                
+                    }
+                    // clear the results
+                    document.getElementById("startOver").addEventListener("click", function(){
+                        document.getElementById("loanAmnt").value = "";
+                        document.getElementById("term").value = "";
+                        document.getElementById("intRate").value = "";
+                        document.getElementById("monthlyPayment").innerText = "";
+                        document.getElementById("totalPrinc").innerText = "";
+                        document.getElementById("totalInt").innerText = "";
+                        document.getElementById("cost").innerText = "";       
+                        document.getElementById("table").innerText = "";
+                    }); </code>
               </pre>
             </div>
           </div>

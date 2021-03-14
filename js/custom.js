@@ -84,7 +84,7 @@ function newFunction() {
             totalInterest2 = Math.round(totalInterest2 * 100 + Number.EPSILON) / 100
         }
         document.getElementById("table").innerHTML+=`<tr><th scope="row">${i}</th><th>${monthlyPayment}</th><th>${principalPayment
-        }</th><th>${interestPayment}</th><th>${totalInterest2}</th><th>${remainingBalance}</th></tr>`
+         }</th><th>${interestPayment}</th><th>${totalInterest2}</th><th>${remainingBalance}</th></tr>`
     
 
     }
