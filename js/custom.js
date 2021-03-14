@@ -88,7 +88,17 @@ function newFunction() {
     
 
     }
-    
+    // clear the results
+    document.getElementById("startOver").addEventListener("click", function(){
+        document.getElementById("loanAmnt").value = "";
+        document.getElementById("term").value = "";
+        document.getElementById("intRate").value = "";
+        document.getElementById("monthlyPayment").innerText = "";
+        document.getElementById("totalPrinc").innerText = "";
+        document.getElementById("totalInt").innerText = "";
+        document.getElementById("cost").innerText = "";       
+        document.getElementById("table").innerText = "";
+    }); 
     
 
     // ************************************************************
